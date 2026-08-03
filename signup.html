@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp Page</title>
+          <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+          
+           *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:aliceblue;
+color:#222;
+}
+
+
+ header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#ede9e9;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:15px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:relative;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:150px;
+height:70px;
+border-radius:0;
+object-fit:contain;
+display:block;
+flex-shrink:0;
+}
+
+.logo h2{
+font-size:26px;
+font-weight:700;
+color:#004aad;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:28px;
+align-items:center;
+}
+
+.nav-links li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active{
+color:#0056d6;
+}
+
+.signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0056d6;
+}
+
+            .login-box {
+                background: linear-gradient(135deg, #637cec 0%, #5d5de6 100%);
+                margin-top: 30px;
+                border-radius: 12px;
+                width: 500px;
+                backdrop-filter: blur(10px);
+                color: white;
+                padding: 20px;
+                margin-left: 450px;
+            }
+
+            .login-box h2 {
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            .login-box p {
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 14px;
+            }
+
+            .input-group {
+                margin-bottom: 10px;
+            }
+
+            .input-group label {
+                display: block;
+                font-size: 15px;
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+
+            .input-group input {
+                width: 100%;
+                padding: 5px;
+                font-size: 14px;
+                border: 2px solid white;
+                border-radius: 8px;
+                background-color: rgba(255,255,255,0.9);
+                outline: none;
+            }
+
+            .btn {
+                width:100%;
+                padding:15px;
+                font-size: 18px;
+                font-weight: bold;
+                background-color: white;
+                color:#667eea;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                margin-top: 5px;
+                
+            }
+
+            .btn:hover {
+                background-color: #ffcc00;
+                color:#000;
+
+            }
+
+            .link {
+                text-align: center;
+                margin-top:20px;
+                font-size: 14px;
+            }
+
+            .link a {
+                color: #ffcc00;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            
+          .hamburger {
+                display: none;
+                cursor: pointer;
+            }
+
+             
+         @media (max-width: 768px) {
+               
+            .nav-links{
+                    display: none;
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    width: 100%;
+                    background-color: #fff;
+                    padding: 20px 0;
+                    flex-direction: column;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    text-align: center;
+                }
+
+                .nav-links.active{
+                    display: flex;
+                    flex-direction: column;
+                    top:90%;
+                    left:0;
+                    width:100%;
+                    background-color: #edeef0;
+                    z-index: 999;
+                  
+                    
+                }
+
+                .hamburger {
+                    display: block;
+                    font-size: 29px;
+                }
+
+                .login-box {
+                    width: 90%;
+                    margin-left: 5%;
+                }
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+       
+<nav class="navbar">
+<div class="logo">
+<img src="logo.png">
+</div>
+<ul class="nav-links" id="navLinks">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About Us</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="job.html">Job Listing</a></li>
+
+<li><a href="employer.html">Employer Section</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+
+</ul>
+<div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+           </div>
+</nav>
+</header>
+
+        <div class="login-box">
+            <h2>Create Account</h2>
+            <p>Join Pathway Careers Today</p>
+
+            <form id="signupForm">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Contact Number</label>
+                    <input type="number" placeholder="enter your number" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="create your password" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="confirm password" required>
+                </div>
+
+                <button type="submit" class="btn">SignUp</button>
+                
+            </form>
+
+            <div class="link">Already have an account? <a href="login.html">Login</a>
+            </div>
+        </div>
+        <script>
+            document.getElementById('signupForm').addEventListener('submit', function(e){
+                e.preventDefault();
+                alert('Account Created Successfully');
+
+                window.location.href="login.html";
+            });
+
+              
+             const navLinks = document.getElementById("navLinks"); 
+             const hamburger = document.getElementById("hamburger");
+            
+             
+            hamburger.addEventListener("click",function(){
+                navLinks.classList.toggle("active");
+            }); 
+        </script>
+    </body>
+</html>

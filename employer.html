@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Employer Portal</title>
+    <style>
+
+        /* ===========================
+   GOOGLE FONT & RESET
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#fff;
+color:#222;
+}
+
+/*===========================
+ NAVBAR
+===========================*/
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#ede9e9;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:15px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:relative;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:150px;
+height:70px;
+border-radius:0;
+object-fit:contain;
+display:block;
+flex-shrink:0;
+}
+
+.logo h2{
+font-size:26px;
+font-weight:700;
+color:#004aad;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:28px;
+align-items:center;
+}
+
+.nav-links li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active{
+color:#0056d6;
+}
+
+.signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0056d6;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        padding:15px 20px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:calc(100% + 8px);
+        right:20px;
+        flex-direction:column;
+        align-items:flex-start;
+        background:#fff;
+        width:min(380px, 90vw);
+        max-height:calc(100vh - 90px);
+        overflow-y:auto;
+        padding:18px;
+        border-radius:16px;
+        box-shadow:0 12px 30px rgba(0,0,0,0.16);
+        display:none;
+        z-index:1001;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+    }
+
+    .nav-links li a{
+        display:block;
+        width:100%;
+        padding:8px 0;
+    }
+
+    
+
+    .signup-btn{
+        display:inline-block;
+        text-align:center;
+        margin-top:5px;
+    }
+
+    .container {
+        width:100%;
+    }
+
+    .hero-wrapper {
+        flex-direction:column;
+        gap:30px;
+    }
+
+    .hero-images {
+        min-height:300px;
+        width:40%;
+        margin-left:-330px;
+    }
+
+    .img1{
+        width:40px;
+    }
+
+    .img2{
+        width:40px;
+        left:0;
+    }
+
+    
+    .hero-content {
+        text-align:center;
+        margin-top:-100px;
+    }
+
+    .stat-box .container, .card, .steps, .cta-box .container, footer {
+        display: grid !important;
+        gap: 20px;
+        grid-template-columns: 1fr !important;
+    }
+
+    .stat-grid, .card-grid, .steps, .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .process {
+        margin-top:50px;
+    }
+
+   
+
+   .card img {
+    width: 100%;
+    margin-left:40px;
+   }
+  
+}
+
+    
+      
+
+        .container {
+            width: 90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        .hero-wrapper {
+            display: flex;
+            align-items: center;    
+            gap: 50px;
+        }
+
+        .hero {
+            background: #031f41;
+        }
+
+        .hero-images {
+           position: relative;
+            min-height: 400px;
+            flex: 1;
+        }
+
+        .hero-images img {
+            position: absolute;
+            width: 280px;
+            margin-left: 30px;
+           border:2px solid white;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 4px 8px rgba(245, 201, 4, 0.6);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-15px) scale(1.05);
+            }
+        }
+
+        .img1 {
+            top: 25px;
+            left: 0;
+            z-index: 1;
+            transform: rotate(-5deg);
+        }
+
+         .img2 {
+            top: 100px;
+            left: 130px;
+            z-index: 2;
+            transform: rotate(9deg);
+        }
+
+         .img3 {
+            top: 190px;
+            left: 20px;
+            z-index: 3;
+            transform: rotate(-10deg);
+        }
+
+        .hero-content {
+            color:#fff;
+            padding: 20px;
+            text-align:center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content h1 {
+            font-size: 38px;
+            margin-bottom: 30px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 700px;
+            margin-bottom: 20px;
+            margin-left: auto;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffcc00;
+            color: #134765;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #e6b800;
+            transform: translateY(-8px);
+        }
+
+        .stats {
+            background: #fff;
+          box-sizing: border-box;
+          border-radius: 20px;
+          margin-bottom: 50px;
+        }
+
+        .stats h2 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+
+        .stat-grid {
+               display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+          .stat-box {
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 20px;
+            background: #f5f7fb;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: spinIn 1s ease-in-out;
+        }
+
+        @keyframes spinIn {
+            0% {
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .stat-box img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 15px;
+            border-radius: 30px;
+        }
+
+         .employer-section {
+            background: #031f41;
+          box-sizing: border-box;
+          border-radius: 20px;
+          margin-bottom: 50px;
+          height: fit-content 30px;
+        }
+
+        .employer-section h2 {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            margin-bottom: 30px;
+            font-size: 32px;
+            color:#fff;
+        }
+        .card-grid {
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            margin-top: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background: #f5f7fb;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            object-fit: cover;
+            width: 250px;
+            height: 200px;
+            margin-bottom: 15px;
+            border-radius: 30px;
+        }
+
+        .process {
+            background: #fff;
+          box-sizing: border-box;
+          border-radius: 20px;
+          margin-bottom: 50px;
+        }
+
+        .process h2 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .steps {
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .steps .step-card {
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 20px;
+            background: #f5f7fb;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps .step-card span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: #0056d6;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .cta-box {
+            background: #031f41;
+          box-sizing: border-box;
+          border-radius: 20px;
+          margin-bottom: 50px;
+          text-align:center;
+          padding: 40px 20px;
+        }
+
+        .cta-box h3 {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .cta-box .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffcc00;
+            color: #134765;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .cta-box .btn:hover {
+            background: #e6b800;
+            transform: translateY(-8px);
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        footer h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+       footer a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            background: #fafcfd;
+            color: #0056d6;
+            width: 140px;
+            margin-bottom: 8px;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            transition: 0.3s ease;
+            background: #0056d6;
+            color: #fff;
+          
+        }
+
+        .copy {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+       
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+      
+    </style>
+</head>
+<body>
+
+    <header>
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+<img src="Pathway Careers.png">
+
+
+</div>
+
+
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About Us</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="job.html">Job Listing</a></li>
+
+<li><a href="employer.html">Employer Section</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+
+</ul>
+
+
+
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+
+</nav>
+
+</header>
+
+
+    <!--hero section -->
+
+    <section class="hero">
+        <div class="hero-wrapper">
+
+            <div class="hero-images">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzv8Ie5ttjcjX21I7NhPX1fkCNnOZ_Yq5Ul__zzL4Qw&s=10" class="img1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOd1OOhSq5h70IGCCamsh4GBhKO-cTOlL8kiR_dUL0vA&s=10" class="img2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY0kG-H9VvNGboLHTFjCv0M-VHxThpMzrbEJDK9doMjg&s=10" class="img3">
+                </div>
+
+         <div class="hero-content">
+
+        <h1>Hire Top Talents,Faster</h1>
+        <p>We connect you with skilled professionals who fit your company culture and job needs. From startups to enterprises, we deliver pre-vetted talent in 7 days or less. Focus on growth, we'll handle hiring.</p>
+        <a href="jobs.html" class="btn">View Job Listings</a>
+
+        </div>
+
+        </div>
+    </section>
+
+    <!--stats section-->
+    <section class="stats">
+        <div class="container">
+            <h2>Our Impact</h2>
+
+            <div class="stat-grid">
+
+            <div class="stat-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNYO7ek2E4nYTnT1H9I_ukhhUWOsYv_hsjc9m4vpLChg&s=10">
+              
+                <h3>500+</h3>
+                <p>Companies Hired </p>
+            </div>
+
+             <div class="stat-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUaE8jEy8DclVc38PUFN-AbpdFYc2O45wpTd9sYhrwYQ&s=10">
+                <h3>5000+</h3>
+                <p>Candidates Placed </p>
+            </div>
+
+             <div class="stat-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQtEG-QtqDbUY3TA2cGEM_Wv5J2iRiqoxwxLRyH7Uig&s=10">
+                <h3>7 Days</h3>
+                <p>Average Time To Hire </p>
+            </div>
+
+             <div class="stat-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4EKaDANcgkupU6tnnOOQt2rahz7ouqEDRW861wAJLrA&s=10">
+                <h3>95%</h3>
+                <p>Client Retention </p>
+            </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!--Employer section content-->
+
+    <section class="employer-section" id="jobs">
+        <div class="container">
+
+            <h2> Our Hiring Solutions</h2>
+            <div class="card-grid">
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZJKs5wDn1bExlGD1FSWelFa-aN-sHfmqzZt2xW7dgxA&s=10">
+                    <h3>IT & Tech Hiring</h3>
+                    <p>Developers,DevOps,data scientists,Product Managers,Technical screenings included.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2g8yWZpYlcUYnEwEUEw_W2iv38bmPtTWcquAE97GP1Q&s=10">
+                    <h3>Executive Search</h3>
+                    <p>C-level,VP,Directors. Confidential search with 6 month replacement guarantee.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRCPPYVRvgT-ZJXcWbWDrPRDVYmUVxsAdj0zaNYyoJDg&s=10">
+                    <h3>Contract Staffing</h3>
+                    <p>Flexible hiring for projects. 3 to 12 months contracts with easy conversation to full time.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrtKA9Q4rgpld6mdBzZcPZEAPNb2A29G7-o_juz9DGow&s=10">
+                    <h3>Manufacturing & Ops</h3>
+                    <p>Plant Managers, Engineers, QC, Supply Chain. Pan-India hiring networks.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN8jjdewa_zlZFYaMYCE-GPP8DwY-dosKKxdhZ4l8rew&s=10">
+                    <h3>Sales & Marketing</h3>
+                    <p>BDM, Digital Marketing, Brand Managers. Performance based hiring available.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoiviOOHjvRP8-bTYgx-j0d8z2LviWMBtSzGMIQ46MDw&s=10">
+                    <h3>BFSI & Financial Services</h3>
+                    <p>CA, CFO, Investment Bankers, Risk Analysts. Compliance checked candidates.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXvtKrCDTJGxZG17F-HSI0kw4mu5q5s__FPSs_uyjNag&s=10">
+                    <h3>Healthcare & Pharmaceuticals</h3>
+                    <p>Doctos, Nurses, MR, R&D. Regulatory and licence verification done.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPvOwKVN8zHyavNl6kZXpRJMc9pbvvww4BArwZJqHmA&s=10">
+                    <h3>Fresher Campus hiring</h3>
+                    <p>Bulk hiring from top colleges. Aptitude + Coding tests included.</p>
+                </div>
+
+                  <div class="card">
+                    <img src="https://img.magnific.com/free-photo/network-graphic-overlay-banner-background_53876-165250.jpg?semt=ais_hybrid&w=740&q=80">
+                    <h3>Remote & Global Talent</h3>
+                    <p>Hire from anywhere. We handle payroll, compliance and contracts.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--how it works-->
+
+    <section class="process" id="jobs">
+        
+        <div class="container">
+
+            <h2>How It Works</h2>
+            <div class="steps">
+
+                <div class="step-card">
+                    <span>1</span>
+                    <h4>Share Requirements</h4>
+                    <p>Describe the role and your company's needs. 15 min call to understand role, culture and skills needed.</p>
+                </div>
+
+                <div class="step-card">
+                    <span>2</span>
+                    <h4>We Source & Screen</h4>
+                    <p> Our team sources + technical/HR round in 48 hours.</p>
+                </div>
+
+                <div class="step-card">
+                    <span>3</span>
+                    <h4>Your Interview</h4>
+                    <p>Get top 3-5 candidates. Interview within a week</p>
+                </div>
+
+                <div class="step-card">
+                    <span>4</span>
+                    <h4>Hire & Onboard</h4>
+                    <p>We help with offer + onboarding for smooth start.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--testimonials-->
+
+    <section class="cta-box">
+        <div class="container">
+
+            <h3>Ready to hire your next top performer?</h3>
+            <p>No cost for initial consultation.</p>
+            <a href="contact.html" class="btn btn-dark">Book a Free Call</a>
+        </div>
+    </section>
+
+
+    <!--footer section-->
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h4>Pathway Careers</h4>
+                    <p>Connecting the right talent with the right opportunities.</p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="job.html">For job Seekers</a>
+                    <a href="services.html">For Services</a>
+                    <a href="about.html">About Us</a>
+                </div>
+
+                <div>
+                    <h4>Contact Us</h4>
+                     <p><i class="fa fa-location-dot"> </i>  123 Bussiness Park, Mumbai, MH 4111001 </p><br>
+                     <p><i class="fa fa-phone"></i>  +91 87654 99887 </p><br>
+                      <p><i class="fa fa-envelope"></i>  @pathwaycareershelp.com </p>
+                </div>
+                <br>
+
+                </div>
+                <div>
+                    <hr>
+                    <p class="copy"> &copy; 2026 Pathway Careers. All Rights Reserved.</p>
+                </div>
+            
+        </div>
+    </footer>
+
+
+    <!--script-->
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        </script>
+</body>
+</html>    

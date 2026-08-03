@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pathway Careers</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --text-dark: #334155;
+            --border-color: #cbd5e1;
+        }
+
+       /* ===========================
+   GOOGLE FONT & RESET
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+}
+
+/*===========================
+ NAVBAR
+===========================*/
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#ede9e9;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:15px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:relative;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:150px;
+height:70px;
+border-radius:0;
+object-fit:contain;
+display:block;
+flex-shrink:0;
+}
+
+.logo h2{
+font-size:26px;
+font-weight:700;
+color:#004aad;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:28px;
+align-items:center;
+}
+
+.nav-links li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active{
+color:#0056d6;
+}
+
+.signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0056d6;
+}
+
+@media (max-width: 900px){
+    .navbar{
+        padding:15px 20px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:calc(100% + 8px);
+        right:20px;
+        flex-direction:column;
+        align-items:flex-start;
+        background:#fff;
+        width:min(280px, 90vw);
+        max-height:calc(100vh - 90px);
+        overflow-y:auto;
+        padding:18px;
+        border-radius:16px;
+        box-shadow:0 12px 30px rgba(0,0,0,0.16);
+        display:none;
+        z-index:1001;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+    }
+
+    .nav-links li a{
+        display:block;
+        width:100%;
+        padding:8px 0;
+    }
+
+    .signup-btn{
+        display:inline-block;
+        text-align:center;
+        margin-top:5px;
+    }
+}
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* --- HERO BANNER --- */
+        .page-banner {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .page-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-banner p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* --- CONTACT SECTION CONTAINER --- */
+        .contact-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 0.5rem;
+        }
+
+        /* --- INQUIRY FORM --- */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+        }
+
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- PLACEMENT OFFICE DETAILS --- */
+        .office-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .detail-item i {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            margin-top: 0.2rem;
+        }
+
+        .detail-item div h4 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .detail-item div p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* --- GOOGLE MAP EMBED --- */
+        .map-container {
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 250px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ede9e9;
+            color: #0a0000;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN & HAMBURGER --- */
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--bg-light);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+<img src="pathway.webp" alt="Pathway Careers Logo">
+
+
+</div>
+
+
+
+<ul id="navLinks" class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About Us</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="job.html">Job Listing</a></li>
+
+<li><a href="employer.html">Employer Section</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+
+</ul>
+
+
+
+<div id="hamburger" class="menu-btn" role="button" tabindex="0" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+</div>
+
+
+</nav>
+
+</header>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <h1>Get in Touch</h1>
+        <p>We're here to bridge the gap between your career goals and top employers.</p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="contact-container">
+        
+        <!-- Left Column: Inquiry Form -->
+        <div class="card">
+            <h2>Send Us an Inquiry</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Inquiry Regarding</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="job-seeker">Job Seeker Support</option>
+                        <option value="employer">Employer Services / Hiring</option>
+                        <option value="campus">Campus Placement</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Inquiry</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Office Details & Google Map -->
+        <div class="card">
+            <h2>Placement Office Details</h2>
+            
+            <div class="office-details">
+                <div class="detail-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Headquarters</h4>
+                        <p>123 Corporate Avenue, Jayanagara, Bangalore, Karnataka 560041</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Phone Number</h4>
+                        <p>+91 87623 94111 / +91 87623 98765</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>support@pathwaycareers.com</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Maps Access Embedded -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8869.332785527462!2d77.57633614039517!3d12.929206122955778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1599769734eb%3A0x171cab49aa92bdbd!2sJayanagar!5e0!3m2!1sen!2sin!4v1785751277726!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pathway Careers. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Hamburger Toggle -->
+    <script>
+    (function(){
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (!hamburger || !navLinks) return;
+        const hamburgerIcon = hamburger.querySelector('i');
+
+        function openMenu(){
+            navLinks.classList.add('active');
+            if(hamburgerIcon){
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-xmark');
+            }
+            hamburger.setAttribute('aria-expanded','true');
+        }
+
+        function closeMenu(){
+            navLinks.classList.remove('active');
+            if(hamburgerIcon){
+                hamburgerIcon.classList.remove('fa-xmark');
+                hamburgerIcon.classList.add('fa-bars');
+            }
+            hamburger.setAttribute('aria-expanded','false');
+        }
+
+        hamburger.addEventListener('click', function(e){
+            e.stopPropagation();
+            if(navLinks.classList.contains('active')) closeMenu();
+            else openMenu();
+        });
+
+        // Allow keyboard activation (Enter/Space)
+        hamburger.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){
+                e.preventDefault();
+                hamburger.click();
+            }
+        });
+
+        // Close when clicking a nav link (mobile)
+        navLinks.addEventListener('click', function(e){
+            const target = e.target.closest('a');
+            if(target) closeMenu();
+        });
+
+        // Close when clicking outside the menu
+        document.addEventListener('click', function(e){
+            if(!navLinks.contains(e.target) && !hamburger.contains(e.target)){
+                if(navLinks.classList.contains('active')) closeMenu();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e){
+            if(e.key === 'Escape') closeMenu();
+        });
+    })();
+    </script>
+</body>
+</html>

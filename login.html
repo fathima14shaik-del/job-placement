@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+          <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+
+          *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+}
+
+ header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#ede9e9;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:15px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:relative;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:150px;
+height:70px;
+border-radius:0;
+object-fit:contain;
+display:block;
+flex-shrink:0;
+}
+
+.logo h2{
+font-size:26px;
+font-weight:700;
+color:#004aad;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:28px;
+align-items:center;
+}
+
+.nav-links li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active{
+color:#0056d6;
+}
+
+.signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0056d6;
+}
+                
+             form{
+                    display:flex;
+
+                }
+
+                .cont-form{
+                    margin-top:30px;
+                    width:400px;
+                    height: 500px;
+                    margin-left: 500px;
+                    box-sizing: border-box;
+                    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+                    border: 15px;
+                    text-align: left;
+                    background:linear-gradient(135deg, #637cec 0%, #5d5de6 100%);
+                    padding:20px;
+                    border-radius: 20px;
+                   
+                }
+
+                .h22{
+                    justify-content: center;
+                    text-align: center;
+                    padding-top: 5px;
+                }
+
+                .p2{
+                    justify-content: center;
+                    text-align: center;
+                    padding-top: 5px;
+                }
+
+                .fields{
+                    padding-left: 60px;
+                    padding-top: 20px;
+                    
+                }
+
+                .btn{
+                    width: 50%;
+                    text-align: center;
+                    justify-content: center;
+                    height: 40px;
+                    margin-top: 60px;
+                    margin-left: 90px;
+                    margin-right: 10px;
+                    padding: 10px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    background-color: #fff;
+                    color: #667eea;
+                    border:none;
+                    border-radius: 8px;
+                    cursor:pointer;
+                    margin-top: 20px;
+                    transition: 0.3s;
+                }
+
+                .input{
+                    margin-bottom: 20px;
+                    text-align: left;
+                    width:80%;
+                    padding: 15px;
+                    font-size: 16px;
+                    border: 2px solid white;
+                    border-radius: 6px;
+                    outline: none;
+                    box-sizing: border-box;
+                }
+
+               
+
+                .l3{
+                    margin-left: 80px;
+                }
+
+                .signup-link{
+                    margin-top: 30px;
+                    padding-left: 30px;
+                   
+                }
+                .signup-link a{
+                    color: #ffcc00;
+                    text-decoration: none;
+                }
+
+                .btn:hover{
+                   background-color:#ffcc00;
+                   color:white;
+                }
+
+                
+                .hamburger {
+                display: none;
+                cursor: pointer;
+                 }
+
+             
+         @media (max-width: 768px) {
+
+                .nav-links{
+                    display: none;
+                    position: absolute;
+                    top: 90px;
+                    left: 0;
+                    width: 100%;
+                    background-color: #fff;
+                    padding: 20px 0;
+                    flex-direction: column;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    text-align: center;
+                }
+
+                .nav-links.active{
+                    display: flex;
+                    flex-direction: column;
+                    top:90%;
+                    left:0;
+                    width:100%;
+                    background-color: #edf0f7;
+                    z-index: 999;
+                  
+                    
+                }
+
+                .hamburger {
+                    display: block;
+                    margin-left: 0px;
+                    margin-top: 15px;
+                    font-size: 27px;
+                }
+
+                .cont-form {
+                    flex-direction: column;
+                    align-items: center;
+                    width: 90%;
+                    font-size: 13px;
+                    margin-left: 18px;
+                    margin-top: 10px;
+                 }
+             }
+        
+           
+        </style>
+    </head>
+    <body>
+  <header>
+
+<nav class="navbar">
+<div class="logo">
+<img src="logo.png">
+</div>
+<ul class="nav-links" id="navLinks">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About Us</a></li>
+
+<li><a href="services.html">Services</a></li>
+
+<li><a href="job.html">Job Listing</a></li>
+
+<li><a href="employer.html">Employer Section</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+
+</ul>
+<div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+           </div>
+</nav>
+</header>
+   
+         
+   
+   <form id="loginForm">
+        <div class="cont-form">
+            <h2 class="h22">Welcome Back</h2>
+            <p class="p2">Login to your Pathway Careers Account</p>
+                    <div class="fields">
+                    <label class="l1" for="email">Email</label><br>
+                    <input class="input" type="email" placeholder="enter your email" required><br>
+                    <br>
+                    <label class="l2" for="password">Password</label><br>
+                    <input class="input" type="password" placeholder="enter your password" required><br>
+                    </div>
+                    <br>
+                    <label class="l3"><input type="checkbox">Remember me</label>
+                        <br>
+                     <button type="submit" class="btn">Login</button><br>
+
+    
+            <div class="signup-link">
+                don't have an account?
+                <a href="signup.html">Sign Up</a>
+                 </div>
+   </form>
+   
+            </div>
+        </div>
+        <script>
+            const form=document.getElementById('loginForm');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Logged in Successfully');
+                window.location.href="index.html";
+            });
+
+              
+             const navLinks = document.getElementById("navLinks"); 
+             const hamburger = document.getElementById("hamburger");
+            
+             
+            hamburger.addEventListener("click",function(){
+                navLinks.classList.toggle("active");
+            }); 
+
+            </script>
+       </body>
+</html>
